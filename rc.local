@@ -18,5 +18,10 @@ if [ "$_IP" ]; then
 fi
 
 export DISPLAY=:0
-matchbox-window-manager -use_cursor no -use_titlebar no &
+xset -dpms # disable DPMS (Energy Star) features.
+xset s off # disable screen saver
+xset s noblank # don't blank the video device
+xinit matchbox-window-manager -use_cursor no -use_titlebar no &
+sleep 1
+touchegg &
 exit 0

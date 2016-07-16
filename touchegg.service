@@ -6,7 +6,7 @@ After=network-online.target
 [Service]
 Type=simple
 GuessMainPID=yes
-User=root
+User=pi
 ExecStart=/home/pi/startTouchegg.sh
 Restart=on-failure
 WorkingDirectory=/home/pi

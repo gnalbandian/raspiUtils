@@ -1,0 +1,15 @@
+[Unit]
+Description=Starts and stops the Epiphany
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+GuessMainPID=yes
+User=root
+ExecStart=/home/pi/startEpiphany.sh
+Restart=on-failure
+WorkingDirectory=/home/pi
+
+[Install]
+WantedBy=multi-user.target

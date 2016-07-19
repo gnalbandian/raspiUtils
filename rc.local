@@ -17,11 +17,7 @@ if [ "$_IP" ]; then
   printf "My IP address is %s\n" "$_IP"
 fi
 
-export DISPLAY=:0
-xset -dpms # disable DPMS (Energy Star) features.
-xset s off # disable screen saver
-xset s noblank # don't blank the video device
-xinit matchbox-window-manager -use_cursor no -use_titlebar no &
-sleep 1
-touchegg &
+ xinit /home/pi/startWM.sh -- -nocursor &
+sleep 5
+
 exit 0

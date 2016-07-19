@@ -1,0 +1,13 @@
+After=jivelite.service
+
+[Service]
+Type=simple
+GuessMainPID=yes
+User=pi
+ExecStart=/home/pi/taskMonitor.sh
+Restart=always
+WorkingDirectory=/home/pi
+Nice=10
+
+[Install]
+WantedBy=multi-user.target

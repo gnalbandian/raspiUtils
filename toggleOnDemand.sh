@@ -1,4 +1,5 @@
 #!/bin/bash
+export DISPLAY=:0
 
 Jivelite_pid=`pgrep -f jivelite`
 Epiphany_pid=`pgrep -f epiphany-browser`
@@ -14,4 +15,4 @@ else
         xdotool windowactivate --sync $Jivelite_wid
 fi
 
-exit 0
+exit 0;

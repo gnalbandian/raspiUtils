@@ -11,6 +11,6 @@ while $((</dev/tcp/$SERVER_IP/$SERVICE_PORT )> /dev/null 2>&1 && echo false || e
 
 export DISPLAY=:0
 #matchbox-window-manager -use_cursor no -use_titlebar no & WEBKIT_DISABLE_TBS=1 epiphany-browser -a --profile /home/pi/.config  http://$SERVER_IP:$SERVICE_PORT/basicui/app
-WEBKIT_DISABLE_TBS=1 epiphany-browser -a --profile /home/pi/.config  http://$SERVER_IP:$SERVICE_PORT/basicui/app
+WEBKIT_DISABLE_TBS=1 epiphany-browser -a --profile /home/pi/.config/epiphany  http://$SERVER_IP:$SERVICE_PORT/basicui/app
 
 exit 0;

@@ -7,7 +7,7 @@ function exit_func() {
 export -f exit_func
 
 function reboot_func() {
-kill -9 $YAD_PID
+bash -c exit_func
 yad --question --undecorated --borders=15 --on-top --center --text "Are you sure you want to reboot the system"
 ret=$?
 	if [[ $ret -eq 0 ]]; then
@@ -15,17 +15,18 @@ ret=$?
     fi
 }
 
-}
+
 export -f reboot_func
 
 function network_func() {
-	kill -9 $YAD_PID
+	bash -c exit_func
+	sudo kill -9 `pgrep wicd-client`
 	/usr/bin/wicd-gtk
 }
 export -f network_func
 
 function screen_func() {
-kill -9 $YAD_PID
+bash -c exit_func
 XSCREENSAVER_STATUS=$(sudo systemctl status xscreensaver.service | grep Active: | awk '{if ($2 == "active") print "TRUE"; else print "FALSE"}')
 VALUE=$(yad --question --width 280 --on-top --center --undecorated --scale --borders=15 --separator=, --form \
 --field "Brightness:SCL" \

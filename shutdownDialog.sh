@@ -9,10 +9,12 @@ export -f exit_func
 function reboot_func() {
 kill -9 $YAD_PID
 yad --question --undecorated --borders=15 --on-top --center --text "Are you sure you want to reboot the system"
-    
-	if [[ "$?" == "0" ]]; then
-		/sbin/reboot
+ret=$?
+	if [[ $ret -eq 0 ]]; then
+		sudo /sbin/reboot
     fi
+}
+
 }
 export -f reboot_func
 
